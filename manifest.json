@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+
+  "name": "Nightfury",
+  "description": "Highlight the web!",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "tabs","activeTab","storage","http://localhost:3000/*","https://webharvester.herokuapp.com/*"
+  ],
+  
+  "background": {
+  "scripts": ["js/background.js"]
+  },  
+  "content_scripts": [
+  {
+    "matches": ["*://*.wikipedia.org/*"],	
+	   "css": ["css/NightfuryStyle.css","js/annotator.min.css"],
+    "js": ["js/jquery.min.js","js/annotator.min.js","js/annotator.store.min.js","js/content.js"]
+  }
+  ],
+  "web_accessible_resources": ["icon.png","0743.png"]
+}

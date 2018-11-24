@@ -1,0 +1,50 @@
+<html>
+   <head>
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <link rel="stylesheet" type="text/css" href="css/login1.css">
+      <link rel="stylesheet" type="text/css" href="css/tabs.css">
+      <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/jquery.min.js"></script>
+   </head>
+   <body id="body">
+      <div class = "my-extension" id="outerdiv">
+         <div id="registerdiv">
+            <div class="topnav1">
+               <h1 style="font-style: fantasy;color: #f2f2f2;font-width: 10px;font-size: 35px"> Highlight the Web!! </h1>
+            </div>
+            <div class="container">
+               <div class="login-form">
+                  <div class="main-div">
+                     <div class="login-page">
+                        <div class="form">
+                           <div class="panel">
+                              <h2>Registration</h2>
+                              <p>Please register with a valid username and password</p>
+                              <div id="loginfail">
+                              </div>
+                           </div>
+                           <form class="login-form" id="Login">
+                              <div class="form-group">
+                                 <input id="user" type="text" class="form-control" name="username" placeholder="Username" required>
+                              </div>
+                              <div class="form-group">
+                                 <input id="pass" type="password" class="form-control" name="password" placeholder="Password" required>
+                              </div>
+                              <div class="form-group">
+                                 <input id="email" type="email" class="form-control" name="email" placeholder="Email" required>
+                              </div>
+                              <button type="button" id="register" class="btn btn-primary 1">Register</button> 
+                              <p class="message">Already registered? <a href="/popup.html">Sign In</a></p>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script src="js/util.js"></script>
+      <script src="js/register.js"></script>
+   </body>
+</html>

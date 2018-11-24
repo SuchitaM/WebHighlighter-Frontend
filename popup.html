@@ -1,0 +1,106 @@
+<html>
+   <head>
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <link rel="stylesheet" type="text/css" href="css/login1.css">
+      <link rel="stylesheet" type="text/css" href="css/tabs.css">
+      <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+      <link href="css/inbox.css" rel="stylesheet">
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/jquery.min.js"></script>
+   </head>
+   <body>
+      <div class = "my-extension" id="outerdiv">
+         <div id="logindiv">
+            <div class="topnav1">
+               <h1 style="font-style:fantasy;color: #f2f2f2;font-width: 10px;font-size: 35px"> Highlight the Web!! </h1>
+            </div>
+            <div class="container">
+               <div class="login-form">
+                  <div class="main-div">
+                     <div class="login-page">
+                        <div class="form">
+                           <div class="panel">
+                              <h2>User Login</h2>
+                              <p>Please enter your username and password</p>
+                           </div>
+                           <form id="Login">
+                              <div class="form-group">
+                                 <input id="user" type="text" class="form-control" name="username" placeholder="Username" required />
+                              </div>
+                              <div class="form-group">
+                                 <input id="pass" type="password" class="form-control" name="password" placeholder="Password" required />
+                              </div>
+                              <button type="button" id="submit" class="btn btn-primary">Login</button> 
+                              <p class="message">Not registered? <a href="/register.html">Create an account</a></p>
+                           </form>
+                           <div id="loginfail">
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div id="homepagediv">
+            <div class="topnav">
+               <a class="active" href="#home">Home</a>
+               <a id="logout" name="logout" href="#">Logout</a>
+               <a style="float: right;color:white" id="welcomemsg">
+               </a>
+            </div>
+            <div id="tabsdiv">
+               <input id="inbox" type="radio" name="tabs" checked>
+               <label for="inbox">Inbox</label>
+               <input id="myshelf" type="radio" name="tabs">
+               <label for="myshelf">MyShelf</label>
+               <section id="inbox_content">
+                  <h2>My Messages</h2>
+                  <br/>
+                  <div class="container2">
+                     <img src="/arun.jpg" alt="Avatar" style="width:100%;">
+                     <input type="checkbox" id="my_checkbox">Arun:   Hello, Please review the new important highlights. </input>
+                     <div id="hidden">
+                        <br/>
+                        <br/>
+                        <p>Hello, Please review the new important highlights.</p>
+                     </div>
+                     <label style= "position:right" for="my_checkbox">Show/hide</label>
+                     <span class="time-right">11:00 pm</span>
+                  </div>
+                  <div class="container2">
+                     <img src="/suchi.jpg" alt="Avatar" style="width:100%;">
+                     <input type="checkbox" id="mycheckbox">Suchita:    Hey! Can you check out my new highlights?</input>
+                     <div id="hidden">
+                        <br/>
+                        <br/>
+                        <p> Hey! Can you check out my new highlights? </p>
+                     </div>
+                     <label style= "position:right" for="mycheckbox">Show/hide</label>
+                     <span class="time-right">10:00 pm</span>
+                  </div>
+                  <div class="container2">
+                     <img src="/renu.jpg" alt="Avatar" style="width:100%;">
+                     <input type="checkbox" id="mycheckboxx">Renu:   Hi there! What are the tasks for today?</input>
+                     <div id="hidden">
+                        <br/>
+                        <br/>
+                        <p>Hi there! What are the tasks for today?</p>
+                     </div>
+                     <label style= "position:right" for="mycheckboxx">Show/hide</label>
+                     <span class="time-right">8:50 am</span>
+                  </div>
+               </section>
+               <section id="myshelf_content">
+                  <h2>
+                     My highlights
+                  </h2>
+                  <br/>
+                  <span1> </span1>
+               </section>
+            </div>
+         </div>
+      </div>
+      <script src="js/util.js"></script>
+      <script src="js/login.js"></script>
+   </body>
+</html>

@@ -1,0 +1,355 @@
+#outerdiv
+{
+	width : 750px;
+	height : 500px;
+}
+#logindiv
+{
+	width: 750px;
+	height : 500px;
+	display : block;
+}
+#myhighlights
+{
+	width: 750px;
+	height : 500px;
+	display : block;
+}
+#loginfail
+{
+	color: red;
+	text-align: center;
+	display : block;
+}
+	
+input {
+   width: 500px;
+   height: 50px;
+   font-size : 25px;
+}
+
+.glowing-border {
+	vertical-align: middle;
+    border: 2px solid #dadada; 
+}
+
+.glowing-border:focus { 
+	vertical-align: middle;
+    outline: none;
+    border-color: #f0ad4e;
+    box-shadow: 0 0 10px #f0ad4e;
+}
+
+.labels{
+
+color: #222;
+font: 30px 'LeagueGothicRegular';
+}
+
+.btn:before {
+  font-family: 'LeagueGothicRegular';
+  line-height: 1;
+  position: relative;
+ }
+.btn-2 {
+  background: #f0ad4e;
+  color: #f0ad4e;
+}
+.btn {
+  font-family: 'LeagueGothicRegular';
+  font-size: 30px;
+  color: inherit;
+  letter-spacing: 1px;
+  outline: none;
+  position: relative;
+  width: 500px;
+  height: 40px
+}
+.btn:after {
+  content: '';
+  position: absolute;
+}
+#homepagediv
+{
+	width : 750px;
+	height : 500px;
+	display : none;
+
+}
+#logoutdiv
+{
+	margin: -100px 500px 0px 500px;
+	width : 250px;
+	height : 60px;
+}
+
+#tabsdiv
+{
+	width: 750px;
+	height : 100px;
+	padding: 20px;
+}
+
+#ulelement
+{
+	width : 750px;
+	height : 100px;
+	font: 20px 'LeagueGothicRegular';
+}
+
+ .tabs { 
+    	list-style: none;
+		width : 100px;
+		font: 15px 'LeagueGothicRegular';
+    }
+.tabs li { 
+		  /* Makes a horizontal row */
+			float: left; 
+			position: relative; 
+			width : 350px;
+			height : 100px;
+		}
+.tabs a { 
+		  /* Make them block level
+		     and only as wide as they need */
+		  float: left; 
+		  padding: 10px 40px; 
+		  text-decoration: none;
+		  
+		  /* Default colors */ 
+		  color: black;
+		  background: white; 
+		  
+		}
+.tabs .active {
+		  /* Highest, active tab is on top */
+		  z-index: 3;
+		}
+.tabs .active a { 
+		  /* Colors when tab is active */
+		  background: #f0ad4e; 
+		  color: black; 
+		}
+.tabs li:before, .tabs li:after, 
+.tabs li a:before, .tabs li a:after {
+		  /* All pseudo elements are 
+		     abs. positioned and on bottom */
+		  position: absolute;
+		  bottom: 0;
+		}
+		/* Only the first, last, and active
+		   tabs need pseudo elements at all */
+.tabs li:last-child:after,   .tabs li:last-child a:after,
+.tabs li:first-child:before, .tabs li:first-child a:before,
+.tabs .active:after,   .tabs .active:before, 
+.tabs .active a:after, .tabs .active a:before {
+		  content: "";
+		}
+.tabs .active:before, .tabs .active:after {
+		  background: #f0ad4e; 
+		  
+		}
+		/* Squares */
+.tabs li:before, .tabs li:after {
+		  background: white;
+		}
+.tabs li:before {
+		  left: -1px;      
+		}
+.tabs li:after { 
+		  right: -1px;
+		}
+		
+.tabs .active a:after, .tabs .active a:before {
+		  background: white;
+		}
+		/* First and last tabs have different
+		   outside color needs */
+.tabs li:first-child.active a:before,
+.tabs li:last-child.active a:after {
+		  background: #222;
+		}
+.tabs li a:before {
+		  left: -2px;
+		}
+.tabs li a:after {
+		  right: -2px;
+		}
+.group:before,
+.group:after {
+    content: "";
+    display: table;
+}
+.group:after {
+    clear: both;
+}
+.group {
+    zoom: 1;
+}
+
+#myshlef
+{
+	width : 350px;
+	height : 100px; 
+}
+#inbox
+{
+	width : 350px;
+	height : 100px;
+}
+#myshelf_content
+{
+	display : none;
+}
+#myhighlights
+{
+	display : none;
+}
+#inbox_content
+{
+	display : block;
+}
+
+#li-element
+{
+	width : 750px;
+	height : 140px;
+}
+
+#titlediv
+{
+	width : 750px;
+	height : 50px;
+	text-decoration: underline;
+	color: #3300CC;
+	font: 40px 'LeagueGothicRegular';
+	
+}
+
+#urldiv
+{
+	width : 750px;
+	height : 30px;
+	color: #3333CC;
+	font: 30px 'LeagueGothicRegular';
+	
+}
+
+#desdiv
+{
+width : 750px;
+height : 30px;
+color: #3366CC;
+font: 25px 'LeagueGothicRegular';
+
+}
+
+#welcomediv
+{
+  width: 500px;
+   height: 60px;
+   color: White;
+   /*background : Black;*/
+   text-align: left;
+   color: black;
+   font: 30px 'LeagueGothicRegular';
+   padding : 15px;
+
+   /*border : 1px solid;*/
+}
+
+ul.circle {
+    list-style-type: circle;
+}
+
+.btnlog:before {
+  font-family: 'LeagueGothicRegular';
+  line-height: 1;
+  position: relative;
+ }
+.btnlog-2 {
+  background: #f0ad4e;
+  color: #f0ad4e;
+}
+.btnlog {
+  font-family: 'LeagueGothicRegular';
+  font-size: 25px;
+  color: inherit;
+  outline: none;
+  padding-top: 15px;
+  width: 250px;
+  height: 100px;
+}
+.btnlog:after {
+  content: '';
+  position: absolute;
+}
+
+
+
+.form-heading { color:#fff; font-size:23px;}
+.panel h2{ color:#444444; font-size:18px; margin:0 0 8px 0;}
+.panel p { color:#777777; font-size:14px; margin-bottom:30px; line-height:24px;}
+.login-form .form-control {
+  background: #f7f7f7 none repeat scroll 0 0;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  font-size: 14px;
+  height: 50px;
+  line-height: 50px;
+}
+.main-div {
+  background: #ffffff none repeat scroll 0 0;
+  border-radius: 2px;
+  margin: 10px auto 30px;
+ 
+  padding: 50px 70px 70px 71px;
+  
+}
+
+.login-form .form-group {
+  margin-bottom:10px;
+}
+.login-form{ text-align:center;}
+.forgot a {
+  color: #777777;
+  font-size: 14px;
+  text-decoration: underline;
+}
+.login-form  .btn.btn-primary {
+  background: #f0ad4e none repeat scroll 0 0;
+  border-color: #f0ad4e;
+  color: #ffffff;
+  font-size: 14px;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  padding: 0;
+}
+.forgot {
+  text-align: left; margin-bottom:30px;
+}
+.botto-text {
+  color: #ffffff;
+  font-size: 14px;
+  margin: auto;
+}
+.back { text-align: left; margin-top:10px;}
+.back a {color: #444444; font-size: 13px;text-decoration: none;}
+
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
