@@ -54,30 +54,21 @@ function buildMyShelf()
 		// document.getElementById("myshelf_content").innerHTML = "My highlights";
 	// document.getElementById("myhighlights").innerHTML = "resp";
 	chrome.storage.sync.get('user_id', function(resp){
-			sendRequestToServer(server+"/api/store/annotations?user_id="+resp.user_id,"GET","",onsuccess)	
+			sendRequestToServer(server+"/api/store/annotations/user_id/"+resp.user_id,"GET","",onBuildMyShelfSuccess)	
 	})
 }
 
-function onsuccess(resp)
+function onBuildMyShelfSuccess(resp)
 {
-	console.log("entering here");
-  
-var arrayquotes =[];
-
-
-
-var length = JSON.stringify(JSON.parse(resp).count);
-    var rows = JSON.parse(resp).rows;
-  
-
-for (i = 0; i < length; i++) 
-{
-	  console.log(rows[i].quote);
-	  arrayquotes.push(rows[i].quote);
-}
-
-console.log(arrayquotes);
-
+	var arrayquotes =[];
+	var length = JSON.stringify(JSON.parse(resp).count);
+	var rows = JSON.parse(resp).rows;
+	
+	for (i = 0; i < length; i++) 
+	{
+		  console.log(rows[i].quote);
+		  arrayquotes.push(rows[i].quote);
+	}
 
     $(function(){
 
@@ -98,18 +89,21 @@ console.log(arrayquotes);
 		});
 }
 
-
-
-
 function buildInbox()
 {
 	
 	//TODO
 	//give req to server to get my messages
 	//get response and parse and build UI
+	// chrome.storage.sync.get('user_id', function(resp){
+	// 		sendRequestToServer(server+"/api/messages/"+resp.user_id,"GET","",onBuildInboxSuccess)	
+	// })
 }
 
-
+function onBuildInboxSuccess(resp)
+{
+	console.log(resp);
+}
 //Swtich tabs in home page
 function showMyShelf()
 {
