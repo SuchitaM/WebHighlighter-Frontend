@@ -2,12 +2,17 @@ document.getElementById("submit").addEventListener('click', login);
 document.getElementById("myshelf").addEventListener("click", showMyShelf)
 document.getElementById("inbox").addEventListener("click", showInbox);
 
+var username = "Guest";
 //If already loggedin then show home page
 chrome.storage.sync.get("loggedin", function(resp)
 {
 	if (resp.loggedin == true)
 	{
-			buildHomePage();		
+		chrome.storage.sync.get("username", function(resp)
+			{		
+				username = resp.username;
+				buildHomePage();	
+			});	
 	}
 });
 
@@ -39,9 +44,9 @@ function onLogin(resp)
 function buildHomePage(resp)
 {
 	//Hide login and show homepage
-	// document.getElementById("welcomemsg").innerHTML = "Hi " + resp.username;
 	document.getElementById("logindiv").style.display = "none";
 	document.getElementById("homepagediv").style.display = "block";
+	document.getElementById("welcomemsg").innerHTML = "Welcome " + username;
 	buildMyShelf();
 	buildInbox();
 }
