@@ -6,18 +6,22 @@ var username = "Guest";
 var msg_annotation_id = "";
 var elem = "";
 //If already loggedin then show home page
-chrome.storage.sync.get("loggedin", function(resp)
-{
-	if (resp.loggedin == true)
-	{
-		chrome.storage.sync.get("username", function(resp)
-			{		
-				username = resp.username;
-				buildHomePage();	
-			});	
-	}
-});
+buildUiIfUserLoggedIn();
 
+
+function buildUiIfUserLoggedIn(){
+	chrome.storage.sync.get("loggedin", function(resp)
+	{
+		if (resp.loggedin == true)
+		{
+			chrome.storage.sync.get("username", function(resp)
+				{		
+					username = resp.username;
+					buildHomePage();	
+				});	
+		}
+	});
+}
 
 function login(){
 	var username = document.getElementById("user").value;
@@ -40,10 +44,10 @@ function onLogin(resp)
 	chrome.storage.sync.set({'username': resp.username});
 	chrome.storage.sync.set({'loggedin': resp.login});
 	chrome.storage.sync.set({'user_id': resp.user_id});
-	buildHomePage(resp);
+	buildUiIfUserLoggedIn();
 }
 
-function buildHomePage(resp)
+function buildHomePage()
 {
 	//Hide login and show homepage
 	document.getElementById("logindiv").style.display = "none";
