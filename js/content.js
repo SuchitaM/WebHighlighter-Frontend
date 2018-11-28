@@ -2,7 +2,7 @@ jQuery(function ($) {
 	var date = new Date();
 	var server = "https://webharvester.herokuapp.com";
 	var requested_annotation_id = getParams("annotation_id");
-	var currentURL = window.location.href;
+	var currentURL = window.location.href.split("?")[0];
 	var messaging_endpoint = requested_annotation_id ? server+"/api/store/annotations/annotation_id/"+requested_annotation_id : server+"/api/store/annotations?url="+currentURL
 	var user_id,username;
 	var annotator = $(document.body).annotator();
