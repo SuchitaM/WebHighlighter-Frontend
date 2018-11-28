@@ -78,9 +78,19 @@ label {
   margin: 0 0 -1px;
   padding: 15px 25px;
   font-weight: 600;
-  text-align: center;
-  color: #bbb;
+  text-align: left;
+  color: black;
   border: 1px solid transparent;
+  width: 100px;
+}
+
+.checkbox label{
+  width : 70%;
+  padding: 0px;
+}
+
+.container2 label {
+    padding: 0px 25px;
 }
 
 label:before {

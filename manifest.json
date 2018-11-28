@@ -20,7 +20,7 @@
   {
     "matches": ["*://*.wikipedia.org/*"],	
 	   "css": ["css/NightfuryStyle.css","js/annotator.min.css"],
-    "js": ["js/jquery.min.js","js/annotator.min.js","js/annotator.store.min.js","js/content.js"]
+    "js": ["js/jquery.min.js","js/socket.io.min.js","js/annotator.min.js","js/annotator.store.min.js","js/content.js"]
   }
   ],
   "web_accessible_resources": ["icon.png","0743.png"]
