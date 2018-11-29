@@ -35,7 +35,8 @@ jQuery(function ($) {
         'uri': currentURL,
         'date': date,
         'user_id' : user_id,
-        "comment" : " - "+username
+				"comment" : " - "+username,
+				"votes" : 0
       }
 
     });
@@ -78,7 +79,7 @@ jQuery(function ($) {
 	      return decodeURIComponent(name[1]);
 	}
 
-    function sendRequestToServer(url,method,data,callback)
+  function sendRequestToServer(url,method,data,callback)
 	{
 	$.ajax({
         url:url,
