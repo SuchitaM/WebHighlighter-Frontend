@@ -60,7 +60,9 @@ jQuery(function ($) {
 
  	annotator.annotator('addPlugin', 'StoreLogger', {});
     console.log(messaging_endpoint);
-    sendRequestToServer(messaging_endpoint,"GET",null,onGetHighlights)
+    sendRequestToServer(messaging_endpoint,"GET",null,onGetHighlights);
+    sendRequestToServer("https://nim5kyzfd6.execute-api.us-west-1.amazonaws.com/Prod","POST",JSON.stringify({"url":currentURL}),onGetPredictions);
+    
     }
 
     socket.on('share_annotaton', function(msg){
@@ -71,7 +73,7 @@ jQuery(function ($) {
 
 
     function onGetHighlights(response){
-    	    annotator.annotator('loadAnnotations',response.rows);
+    	    annotator.annotator('loadAnnotations',JSON.parse(response).rows);
     }
     
     function getParams(name){
@@ -81,16 +83,101 @@ jQuery(function ($) {
 
   function sendRequestToServer(url,method,data,callback)
 	{
+	console.log(url);
+	console.log(data);
 	$.ajax({
         url:url,
 		method : method,
 		data :data,
         success:function(response) {
-				callback(JSON.parse(response));
-            }
+				callback(response);
+            },
+        timeout: 120000 // sets timeout to 120 seconds
      });	
-	}	
-	
-});
+	}
 
+	function findDomElementsWithContent(rootNode,content)
+	{
+    var elementList = []
+
+
+    function parseDom(currentNode)
+    {
+        if(currentNode.nodeType == 1)
+        {
+            
+            if(currentNode.textContent.indexOf(content)!=-1)
+            	elementList.push(currentNode);
+            
+            for(let i=0;i<currentNode.children.length;i++)
+            {
+                parseDom(currentNode.children[i]);
+            }
+        }
+    }
+
+    parseDom(rootNode);
+
+    return elementList;
+	}
+
+	function highlightDomByContent(content)
+	{
+			var elementList = findDomElementsWithContent(document.body,content);
+			if(elementList.length)
+			{
+				try
+				{
+					var parent = elementList[elementList.length-1];
+					var html = parent.innerHTML;
+					var parentContents = content.split(" ");
+					var firstWord = parentContents[0];
+					var lastWord = parentContents[parentContents.length-1];
+					if(html.indexOf(firstWord)!=-1)
+					{
+							html = html.replace(firstWord,"<span class='predicted_highlight'>"+firstWord);
+					}
+					else
+					{
+						    html = "<span class='predicted_highlight'>" + html;
+					}
+					if(html.indexOf(lastWord)!=-1)
+					{
+							html = html.replace(lastWord,lastWord+"</span>");
+					}
+					else
+					{
+							html = html + "</span>";
+					}
+					parent.innerHTML = html;
+				}
+				catch(ex)
+				{
+
+				}
+			}
+	}
+
+	function onGetPredictions(predictions)
+	{
+		for(let i=0;i<predictions.length;i++)
+			highlightDomByContent(predictions[i]);
+	}	
+
+	//predictions = ["Daenerys is a young woman in her early teens living","She subsequently appeared in A Clash of Kings (1998) and A Storm of Swords (2000).  Daenerys was one of a few prominent characters not included in 2005's A Feast for Crows, but returned in the next novel A Dance with Dragons (2011).[4][5]"];
+	// predictions = [
+ //    ": San Jos State University Ranked First in Private Giving to CSU During ",
+ //    ", the SJSU main campus is situated on ",
+ //    ") provides housing for domestic as well as international students of the university",
+ //    "'s first public library occupied the same site from ",
+ //    "'s Wahlquist Library occupied the site from ",
+ //    ", enrollment at SJSU has become impacted in all undergraduate majors",
+ //    ", which means the university no longer has the enrollment capacity to accept all CSU",
+ //    ", including some from local high schools and community colleges",
+ //    "-story residence facility located on the SJSU campus near the intersection of ",
+ //    "9th Street and Paseo de San Carlos"
+	// ];		
+	//onGetPredictions(predictions);	
+});
+ 
 
