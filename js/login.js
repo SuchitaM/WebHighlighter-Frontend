@@ -78,8 +78,8 @@ function onBuildMyShelfSuccess(resp)
             //console.log(resp[i]);
             
             html += '<div class="container2">';
-            
-            html += '<input type="checkbox" id="myshelf_item'+i+'">'+ rows[i].uri + '</input>';
+            var votes = rows[i].votes? rows[i].votes : 0; 
+            html += '<input type="checkbox" id="myshelf_item'+i+'">'+ rows[i].uri + '; Votes: '+votes + '</input>';
             
             html += '<div id="hidden"></br></br>';
             html += '<div style="float:left"><a href="#" class="redirect" data-href = "'+rows[i].uri+'?annotation_id='+rows[i]._id+'">' + JSON.stringify(rows[i].quote)+'</a></div>';
@@ -140,8 +140,8 @@ function onBuildInboxSuccess(response)
             html += '<div class="container2">';
             
             html += '<img src="img/jon-snow.jpg" alt="Avatar" style="width:60px;height:60px"/>';          
-
-            html += '<input type="checkbox" id="mycheckbox'+i+'">'+ resp[i].username + ':-  ' + resp[i].annotations[0].uri + '</input>';
+            var votes = resp[i].annotations[0].votes? resp[i].annotations[0].votes : 0; 
+            html += '<input type="checkbox" id="mycheckbox'+i+'">'+ resp[i].username + ':-  ' + resp[i].annotations[0].uri + '; Votes: '+votes +'</input>';
             
             html += '<div id="hidden"></br></br>';
             html += '<div style="float:left"><a href="#" class="redirect" data-href = "'+resp[i].annotations[0].uri+'?annotation_id='+resp[i].annotation_id+'">'+ resp[i].annotations[0].quote + '</a></div>';
