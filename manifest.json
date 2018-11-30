@@ -10,7 +10,7 @@
     "default_popup": "popup.html"
   },
   "permissions": [
-    "tabs","activeTab","storage","http://localhost:3000/*","https://webharvester.herokuapp.com/*"
+    "tabs","activeTab","storage","http://localhost:3000/*","https://webharvester.herokuapp.com/*","https://nim5kyzfd6.execute-api.us-west-1.amazonaws.com/*"
   ],
   
   "background": {
